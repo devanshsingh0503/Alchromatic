@@ -53,22 +53,30 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
 
       {/* Mobile Menu Popup */}
       <div
-        className={`pointer-events-none fixed left-1/2 z-30 w-[calc(100%-64px)] max-w-[300px] -translate-x-1/2 rounded-3xl border border-white/12 bg-[rgba(10,10,10,0.94)] px-5 py-5 shadow-[0_20px_48px_rgba(0,0,0,0.5)] backdrop-blur-lg transition-all duration-200 xl:hidden ${
+        className={`fixed left-1/2 z-30 w-[calc(100%-64px)] max-w-[300px] -translate-x-1/2 rounded-3xl border border-white/12 bg-[rgba(10,10,10,0.96)] px-5 py-5 shadow-[0_20px_48px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-300 ease-out xl:hidden ${
           mobileMenuOpen
-            ? "pointer-events-auto translate-y-0 opacity-100"
-            : "translate-y-3 opacity-0"
+            ? "pointer-events-auto translate-y-0 opacity-100 visible"
+            : "pointer-events-none translate-y-4 opacity-0 invisible"
         }`}
-        style={{ bottom: "110px" }}
+        style={{ bottom: "112px" }}
       >
-        <div className="space-y-2.5 text-[13px] font-poppins uppercase tracking-[0.08em] text-white">
+        <div className="space-y-1 font-poppins uppercase tracking-[0.08em] text-white">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between rounded-2xl px-4 py-3.5 transition-all duration-150 bg-transparent text-white/80 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/20"
+              className={`flex min-h-[52px] items-center justify-between rounded-2xl px-4 py-3 text-[13px] transition-all duration-150 active:scale-[0.97] ${
+                pathname === item.href
+                  ? "bg-white/15 text-white"
+                  : "bg-transparent text-white/75 active:bg-white/10 active:text-white"
+              } focus:outline-none focus:ring-2 focus:ring-white/20`}
+              style={{ WebkitTapHighlightColor: "transparent" }}
             >
               <span>{item.label}</span>
+              {pathname === item.href && (
+                <span className="size-1.5 rounded-full bg-white/60" />
+              )}
             </Link>
           ))}
         </div>
@@ -81,7 +89,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             href={siteConfig.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-1 items-center justify-between rounded-2xl bg-[#d9d9d9] px-6 py-3 font-poppins text-xs uppercase tracking-[0.12em] text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] focus:outline-none focus:ring-2 focus:ring-white/20"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex flex-1 items-center justify-between rounded-2xl bg-[#d9d9d9] px-6 py-3 font-poppins text-xs uppercase tracking-[0.12em] text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] transition-all duration-150 active:scale-[0.97] active:bg-[#c4c4c4] focus:outline-none focus:ring-2 focus:ring-white/20"
+            style={{ WebkitTapHighlightColor: "transparent" }}
           >
             <span>WhatsApp</span>
             <span className="ml-3 flex size-8 items-center justify-center rounded-full bg-black/85 text-[#d9d9d9]">
@@ -92,8 +102,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             type="button"
             onClick={() => setChatOpen(!chatOpen)}
             aria-label={chatOpen ? "Close chat" : "Open chat"}
-            className={`ml-3 flex size-11 items-center justify-center rounded-2xl border border-white/12 text-white transition focus:outline-none focus:ring-2 focus:ring-white/20 ${
-              chatOpen ? "bg-[#d9d9d9] text-black" : "bg-black/70 hover:bg-black/50"
+            style={{ WebkitTapHighlightColor: "transparent" }}
+            className={`ml-3 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-2xl border border-white/12 text-white transition-all duration-150 active:scale-[0.93] focus:outline-none focus:ring-2 focus:ring-white/20 ${
+              chatOpen ? "bg-[#d9d9d9] text-black" : "bg-black/70 active:bg-black/90"
             }`}
           >
             <MessageCircle className="size-5" />
@@ -103,7 +114,10 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            className="ml-3 flex size-11 items-center justify-center rounded-2xl border border-white/12 bg-black/70 text-white transition hover:bg-black/50 focus:outline-none focus:ring-2 focus:ring-white/20"
+            style={{ WebkitTapHighlightColor: "transparent" }}
+            className={`ml-3 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-2xl border border-white/12 text-white transition-all duration-150 active:scale-[0.93] focus:outline-none focus:ring-2 focus:ring-white/20 ${
+              mobileMenuOpen ? "bg-white/15" : "bg-black/70 active:bg-black/90"
+            }`}
           >
             {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
