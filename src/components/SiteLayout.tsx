@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, ArrowUp } from "lucide-react";
 import { siteConfig } from "@/data/config";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
@@ -80,8 +80,22 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               )}
             </Link>
           ))}
+          <div className="pt-2 border-t border-white/10 mt-2">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="flex min-h-[48px] w-full items-center justify-between rounded-2xl px-4 py-2.5 text-[12px] uppercase text-white/70 hover:text-white hover:bg-white/10 transition-all active:scale-[0.97]"
+            >
+              <span>Back to Top</span>
+              <ArrowUp size={15} />
+            </button>
+          </div>
         </div>
       </div>
+
 
       {/* Mobile Bottom Bar */}
       <div className="pointer-events-none fixed bottom-5 left-1/2 z-40 w-[calc(100%-64px)] max-w-[300px] -translate-x-1/2 xl:hidden sm:bottom-7">
