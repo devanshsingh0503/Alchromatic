@@ -8,6 +8,11 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "allowScripts": {
+    "sharp": true,
+    "unrs-resolver": true
+  },
+
   "dependencies": {
     "embla-carousel-react": "^8.6.0",
     "gsap": "^3.15.0",
