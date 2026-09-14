@@ -41,15 +41,16 @@ export default function ParallaxElement({
       ctx = gsap.context(() => {
         gsap.fromTo(
           ref.current,
-          { y: speed },     // starts offset (pushed down for bg elements)
+          { y: speed, force3D: true },     // starts offset (pushed down for bg elements)
           {
             y: -speed,       // ends offset (pulled up — drifts opposite scroll)
             ease: "none",
+            force3D: true,
             scrollTrigger: {
               trigger: ref.current,
               start: "top bottom",   // begins when element bottom enters viewport
               end: "bottom top",     // ends when element top leaves viewport
-              scrub: 1.5,            // smooth lag for cinematic feel
+              scrub: 1.0,            // crisp responsive lag
             },
           }
         );
@@ -60,7 +61,17 @@ export default function ParallaxElement({
   }, [speed]);
 
   return (
-    <div ref={ref} className={className} style={style}>
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        willChange: speed !== 0 ? "transform" : undefined,
+        transform: "translate3d(0, 0, 0)",
+        backfaceVisibility: "hidden",
+        WebkitBackfaceVisibility: "hidden",
+        ...style,
+      }}
+    >
       {children}
     </div>
   );

@@ -10,16 +10,18 @@ interface Message {
 }
 
 const botReplies: Record<string, string> = {
-  hello: `Hi! Welcome to ${siteConfig.brand.name}. How can I help you today?`,
-  hi: `Hey! How can we help you at ${siteConfig.brand.name}?`,
-  membership: "We offer flexible membership plans. Please visit us in person or call for the latest pricing.",
-  price: "Our membership plans vary. Call us at " + siteConfig.contact.phones[0] + " for a personalized quote.",
-  location: `We have two locations:\n• ${siteConfig.locations[0].label}\n• ${siteConfig.locations[1].label}`,
-  trial: "Yes! We offer a free trial session. Just drop by any of our locations or message us on WhatsApp!",
-  trainer: "Our trainers are internationally certified. They design programs tailored to your specific goals.",
+  hello: `Hi! Welcome to ${siteConfig.brand.name}. How can we assist your creative journey today?`,
+  hi: `Hey there! Looking for fine art supplies or Huion digital displays at ${siteConfig.brand.name}?`,
+  huion: "We carry official Huion 4K interactive pen displays, battery-free styluses, and drawing tablets with live demo units in our ateliers!",
+  tablet: "We showcase professional Huion interactive pen displays and drawing tablets. Feel free to visit our atelier to test them in person!",
+  pigment: "We supply extra-fine single-pigment oils, acrylics, watercolours, and pure dry mineral pigments with maximum ASTM lightfastness ratings.",
+  frame: "We offer custom museum-grade conservation framing with UV-protective Optium acrylic and acid-free rag mats.",
+  canvas: "Our canvases feature archival Belgian linen and heavy cotton duck, custom-stretched on kiln-dried hardwood bars.",
+  price: "For product pricing and wholesale atelier catalog quotes, please contact us at " + siteConfig.contact.phones[0] + " or email " + siteConfig.contact.email + ".",
+  location: `We have two ateliers:\n• ${siteConfig.locations[0].label}\n• ${siteConfig.locations[1].label}`,
   timing: `${siteConfig.contact.hours.weekdays}\n${siteConfig.contact.hours.weekend}`,
   hours: `${siteConfig.contact.hours.weekdays}\n${siteConfig.contact.hours.weekend}`,
-  contact: `You can reach us at:\n📞 ${siteConfig.contact.phones[0]}\n📧 ${siteConfig.contact.email}`,
+  contact: `You can reach our atelier concierge at:\n📞 ${siteConfig.contact.phones[0]}\n📧 ${siteConfig.contact.email}`,
 };
 
 function getBotReply(input: string): string {

@@ -25,6 +25,7 @@ export default function StackSection({
   bg = "#000",
 }: StackSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let ctx: { revert: () => void } | undefined;
@@ -37,24 +38,40 @@ export default function StackSection({
       if (!ref.current) return;
 
       ctx = gsap.context(() => {
-        // As this section scrolls OUT (next card comes in), scale it down & dim it
+        // Scale down on GPU compositor thread
         gsap.fromTo(
           ref.current,
-          { scale: 1, filter: "brightness(1)" },
+          { scale: 1, force3D: true },
           {
-            scale: 0.88,
-            filter: "brightness(0.5)",
+            scale: 0.9,
             ease: "none",
+            force3D: true,
             scrollTrigger: {
               trigger: ref.current,
-              // Start when the top of this section hits the top of viewport (it's now pinned)
               start: "top top",
-              // End when the bottom of this section reaches the top (next card fully in)
               end: "bottom top",
-              scrub: 1.2,
+              scrub: 1.0,
             },
           }
         );
+
+        // Hardware-accelerated dimming via opacity overlay (no layout repaint or filter lag)
+        if (overlayRef.current) {
+          gsap.fromTo(
+            overlayRef.current,
+            { opacity: 0 },
+            {
+              opacity: 0.55,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ref.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: 1.0,
+              },
+            }
+          );
+        }
       }, ref);
     })();
 
@@ -68,12 +85,19 @@ export default function StackSection({
       style={{
         zIndex: 10 + index,
         background: bg,
-        // Subtle top rounding so stacked cards look layered
         borderRadius: index === 0 ? "0" : "24px 24px 0 0",
-        willChange: "transform, filter",
+        willChange: "transform",
+        transform: "translate3d(0, 0, 0)",
+        backfaceVisibility: "hidden",
       }}
     >
       {children}
+      {/* GPU compositor dimming layer */}
+      <div
+        ref={overlayRef}
+        className="pointer-events-none absolute inset-0 bg-black z-50 transition-none"
+        style={{ opacity: 0, willChange: "opacity" }}
+      />
     </div>
   );
 }

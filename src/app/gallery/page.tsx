@@ -7,7 +7,7 @@ import ParallaxElement from "@/components/ParallaxElement";
 
 export const metadata: Metadata = {
   title: `Gallery | ${siteConfig.brand.name}`,
-  description: `See the world-class facilities and training environment at ${siteConfig.brand.name}.`,
+  description: `Explore the creative atelier, pure pigment bar, and Huion digital workspaces at ${siteConfig.brand.name}.`,
 };
 
 // Alternating parallax speeds for layered depth
@@ -23,13 +23,13 @@ export default function GalleryPage() {
         <ParallaxElement speed={105} className="pointer-events-none absolute -top-20 right-0 w-[500px] h-[500px] rounded-full bg-white/[0.025] blur-3xl" />
         <ParallaxElement speed={65} className="pointer-events-none absolute bottom-0 left-1/4 w-[280px] h-[280px] rounded-full bg-white/[0.015] blur-2xl" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full">
-          <ParallaxElement speed={22}>
-            <p className="font-poppins text-[10px] uppercase tracking-[0.3em] text-white/40 mb-4">Inside Apex</p>
-            <h1 className="font-rebelton text-[clamp(3rem,8vw,7rem)] leading-[0.9] text-white">Our Facility</h1>
+          <ParallaxElement speed={18}>
+            <p className="font-poppins text-[10px] uppercase tracking-[0.3em] text-white/40 mb-3">Inside the Atelier</p>
+            <h1 className="font-rebelton text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.98] text-white">Atelier &amp; Gallery</h1>
+            <p className="mt-6 font-poppins text-sm sm:text-base text-white/60 max-w-xl leading-relaxed">
+              Step inside our creative sanctuary. Every easel, pigment mill, handcrafted canvas, and Huion digital display — curated for artistic excellence.
+            </p>
           </ParallaxElement>
-          <p className="mt-5 font-poppins text-sm text-white/60 max-w-xl leading-relaxed">
-            Step inside the most premium fitness facility in the city. Every corner, every machine, every detail — built for champions.
-          </p>
         </div>
       </StackSection>
 
@@ -44,6 +44,8 @@ export default function GalleryPage() {
                   <img
                     src={item.url}
                     alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full min-h-[260px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -69,7 +71,13 @@ export default function GalleryPage() {
               <ParallaxElement key={i} speed={feedSpeeds[i] ?? 40}>
                 <div className="group relative aspect-square overflow-hidden rounded-2xl">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={url} alt={`Apex Fitness ${i + 1}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img
+                    src={url}
+                    alt={`Studio Creation ${i + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
                 </div>
               </ParallaxElement>
@@ -82,15 +90,17 @@ export default function GalleryPage() {
       <StackSection index={3} bg="#000" className="py-24 min-h-[50vh] flex items-center">
         <ParallaxElement speed={120} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.03] blur-3xl" />
         <div className="mx-auto max-w-2xl px-6 text-center w-full relative z-10">
-          <ParallaxElement speed={20}>
-            <h2 className="font-rebelton text-[clamp(2rem,5vw,3.5rem)] leading-none text-white">Come See It In Person</h2>
+          <ParallaxElement speed={18}>
+            <h2 className="font-rebelton text-[clamp(2rem,5vw,3.5rem)] leading-tight text-white">Visit Our Atelier</h2>
+            <p className="mt-5 font-poppins text-sm text-white/50 leading-relaxed">
+              Experience the materials firsthand. Test our Huion pen displays, view custom framing finishes, and discover your signature color palette.
+            </p>
+            <div className="mt-8">
+              <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-10 py-4 font-poppins text-sm font-medium tracking-wide text-black transition hover:bg-white/90">
+                Plan Your Visit <ArrowRight size={16} />
+              </Link>
+            </div>
           </ParallaxElement>
-          <p className="mt-5 font-poppins text-sm text-white/50 leading-relaxed">
-            Photos don&apos;t do it justice. Book a free tour and experience the facility firsthand.
-          </p>
-          <Link href="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-10 py-4 font-poppins text-sm font-medium tracking-wide text-black transition hover:bg-white/90">
-            Book a Tour <ArrowRight size={16} />
-          </Link>
         </div>
       </StackSection>
 

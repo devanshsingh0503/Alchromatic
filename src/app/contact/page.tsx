@@ -7,11 +7,11 @@ import StackSection from "@/components/StackSection";
 import ParallaxElement from "@/components/ParallaxElement";
 
 const subjects = [
-  "Free Trial Session",
-  "Membership Enquiry",
-  "Personal Training",
-  "Apex-90 Program",
-  "Corporate Wellness",
+  "Material & Pigment Consultation",
+  "Huion Pen Display Inquiry",
+  "Custom Archival Framing Quote",
+  "Alchromatic Master Series",
+  "Studio & Academy Wholesale",
   "Other",
 ];
 
@@ -41,13 +41,13 @@ export default function ContactPage() {
         <ParallaxElement speed={105} className="pointer-events-none absolute -top-24 left-1/3 w-[560px] h-[560px] rounded-full bg-white/[0.025] blur-3xl" />
         <ParallaxElement speed={60} className="pointer-events-none absolute bottom-0 right-0 w-[260px] h-[260px] rounded-full bg-white/[0.015] blur-2xl" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full">
-          <ParallaxElement speed={22}>
-            <p className="font-poppins text-[10px] uppercase tracking-[0.3em] text-white/40 mb-4">Get In Touch</p>
-            <h1 className="font-rebelton text-[clamp(3rem,8vw,7rem)] leading-[0.9] text-white">Contact Us</h1>
+          <ParallaxElement speed={18}>
+            <p className="font-poppins text-[10px] uppercase tracking-[0.3em] text-white/40 mb-3">Get In Touch</p>
+            <h1 className="font-rebelton text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.98] text-white">Contact Us</h1>
+            <p className="mt-6 font-poppins text-sm sm:text-base text-white/60 max-w-xl leading-relaxed">
+              Have a custom studio inquiry or seeking advice on pigments, substrates, or Huion digital displays? Drop us a message and our atelier team will respond promptly.
+            </p>
           </ParallaxElement>
-          <p className="mt-5 font-poppins text-sm text-white/60 max-w-xl leading-relaxed">
-            Ready to begin your transformation? Drop us a message and we&apos;ll get back to you within 24 hours.
-          </p>
         </div>
       </StackSection>
 

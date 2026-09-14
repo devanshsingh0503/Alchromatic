@@ -3,23 +3,23 @@ import "./globals.css";
 import SiteLayout from "@/components/SiteLayout";
 
 export const metadata: Metadata = {
-  title: "Apex Fitness | Premium Gym — Downtown & Westside",
+  title: "Alchromatic | Premier Art Supplies & Creative Atelier",
   description:
-    "Apex Fitness is the city's most premium gym with internationally-qualified trainers, world-class equipment, and exclusive Steam, Sauna & Ice Bath facilities. Two locations: Downtown Plaza & Westside Center. Book your free trial today.",
+    "Alchromatic is the premier destination for fine art supplies, archival pigments, Belgian linen canvases, and Huion interactive digital pen displays. Explore our curated creative tools and ateliers in Downtown & Westside.",
   keywords:
-    "premium gym, best gym, personal training, Olympic lifting, bodybuilding, Steam Sauna Ice Bath, Apex Fitness, weight loss program, fitness center",
+    "fine art supplies, pigments, oil paints, Huion pen displays, digital art tablets, watercolor paper, archival framing, Belgian linen, drafting inks, artist atelier",
   openGraph: {
-    title: "Apex Fitness | Premium Gym",
+    title: "Alchromatic | Premier Art Supplies & Creative Atelier",
     description:
-      "Most premium gym. Internationally-qualified trainers, world-class equipment, Steam, Sauna & Ice Bath recovery. Two locations. Book your free trial today.",
-    siteName: "Apex Fitness",
+      "Museum-grade pigments, master-stretched canvases, and professional Huion digital pen displays for creators and visual artists.",
+    siteName: "Alchromatic",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Apex Fitness | Premium Gym",
+    title: "Alchromatic | Premier Art Supplies & Creative Atelier",
     description:
-      "Most premium gym — internationally-qualified trainers, world-class equipment, Steam, Sauna & Ice Bath.",
+      "Museum-grade pigments, master canvases, and professional digital drawing tools for creators.",
   },
 };
 

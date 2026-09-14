@@ -1,40 +1,40 @@
 export const siteConfig = {
   brand: {
-    name: "APEX FITNESS",
-    shortName: "APEX",
-    tagline: "Move Better. Live Better.",
+    name: "ALCHROMATIC",
+    shortName: "ALCHROMATIC",
+    tagline: "Pure Chroma. Infinite Expression.",
     description:
-      "Step into the city's most premium fitness facility. With internationally-qualified trainers, world-class equipment, and exclusive Steam, Sauna & Ice Bath recovery — we don't just build bodies. We build champions.",
-    badge: "Best Premium Gym in the City",
-    program: "Apex-90",
+      "Step into the ultimate creative sanctuary for painters, illustrators, and visual designers. Supplying museum-grade pigments, master-grade Belgian linens, archival inks, and professional Huion digital pen displays — we empower artists to transcend boundaries.",
+    badge: "Premier Art Supplies & Creative Atelier",
+    program: "Alchromatic Master Series",
   },
   contact: {
-    phones: ["+1 (555) 019-9000", "+1 (555) 019-9001"],
-    email: "info@apexfitness.demo",
-    instagram: "@apex_fitness_demo",
+    phones: ["+1 (555) 019-2040", "+1 (555) 019-2041"],
+    email: "concierge@alchromatic.demo",
+    instagram: "@alchromatic_art",
     instagramUrl: "https://instagram.com",
-    whatsapp: "https://wa.me/15550199000",
+    whatsapp: "https://wa.me/15550192040",
     hours: {
-      weekdays: "Mon - Sat: 5:00 AM - 10:00 PM",
-      weekend: "Sun: 6:00 AM - 8:00 PM",
+      weekdays: "Mon - Fri: 9:00 AM - 8:00 PM",
+      weekend: "Sat - Sun: 10:00 AM - 6:00 PM",
     },
   },
   locations: [
     {
       id: "downtown",
-      label: "Downtown Plaza",
-      address: "2nd floor, Downtown Plaza\n123 Main Street, City Center — 10001",
-      addressShort: "2nd floor, Downtown Plaza\n123 Main Street, City Center — 10001",
-      phone: "+1 (555) 019-9000",
+      label: "Downtown Atelier & Showroom",
+      address: "2nd Floor, Arts District Loft\n123 Gallery Row, City Center — 10001",
+      addressShort: "2nd Floor, Arts District Loft\n123 Gallery Row, City Center — 10001",
+      phone: "+1 (555) 019-2040",
       mapEmbed:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2!2d-73.9856!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1234567890",
     },
     {
       id: "westside",
-      label: "Westside Center",
-      address: "1st Floor, Metro Arcade\n456 North Boulevard, Westside — 10002",
-      addressShort: "1st Floor, Metro Arcade\n456 North Boulevard, Westside — 10002",
-      phone: "+1 (555) 019-9001",
+      label: "Westside Creative Hub",
+      address: "1st Floor, Design Quarter\n456 Studio Boulevard, Westside — 10002",
+      addressShort: "1st Floor, Design Quarter\n456 Studio Boulevard, Westside — 10002",
+      phone: "+1 (555) 019-2041",
       mapEmbed:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9!2d-74.0059!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1e4e5c5c5c%3A0x0!2zNDDCsDQyJzQ2LjEiTiA3NMKwMDAnMjEuMiJX!5e0!3m2!1sen!2sus!4v1234567890",
     },
@@ -49,156 +49,156 @@ export const siteConfig = {
   ],
   services: [
     {
-      title: "Apex-90 Program",
+      title: "Museum-Grade Pigments & Oils",
       description:
-        "Our signature Apex-90 program comprises specialized workouts and nutrition plans designed completely according to your body type. Transform your entire body whether you are looking for fat loss, muscle gain, or general fitness within 90 days.",
+        "Single-pigment extra-fine oil paints, heavy-body acrylics, pure mineral dry pigments, and cold-pressed linseed mediums made with maximum ASTM lightfastness ratings.",
     },
     {
-      title: "Personal Training",
+      title: "Digital Pen Displays & Huion Tablets",
       description:
-        "Our personal trainers are internationally qualified. They deliver safe and effective exercise programs for healthy individuals and groups, motivate clients by collaborating to set goals, providing meaningful feedback, and being a reliable source of accountability.",
+        "High-definition 4K interactive pen displays, battery-free styluses with 8,192 pressure sensitivity levels, and tactile accessories for digital illustrators and 3D concept artists.",
     },
     {
-      title: "Olympic Lifting",
+      title: "Master Canvases & Handcrafted Paper",
       description:
-        "Welcome to the world of strength training. Our trainers will help you learn the basics of strength training including weight lifting and powerlifting with expert technique coaching.",
+        "Belgian linen stretched over kiln-dried hardwood bars, 100% cotton rag archival watercolor papers, and Japanese washi crafted for delicate ink washes.",
     },
     {
-      title: "Nutrition Consultation",
+      title: "Bespoke Archival Framing",
       description:
-        "Our team of Certified Nutritionists will help you customize your daily calorie intake according to your desired goals including fat loss, muscle gain, general fitness, or event and sport preparation.",
+        "Custom museum-grade conservation framing featuring UV-protective Optium acrylic, acid-free rag mats, and hand-finished hardwood moulding to preserve fine art for centuries.",
     },
     {
-      title: "Bodybuilding",
+      title: "Fine Inks & Precision Drafting",
       description:
-        "If your goal is to participate in a bodybuilding competition or build a muscular physique, our team of experts will design a regimen of exercises to enhance muscular development and promote aesthetic conditioning.",
+        "Waterproof calligraphy and drafting inks, technical fineliners, dip pens, and refillable brush markers favored by comic book creators, illustrators, and architects.",
     },
     {
-      title: "Cardio Training",
+      title: "Artist Workshops & Masterclasses",
       description:
-        "We offer a wide variety of cardio experiences. You have access to stationary bikes, elliptical trainers, treadmills, rowing machines, climbers, ski ergs, and many more premium cardio machines.",
+        "Hands-on studio masterclasses covering classical oil glazing, life sketching, modern digital illustration workflows, and advanced color theory with recognized artists.",
     },
     {
-      title: "Strength & Conditioning",
+      title: "Sculpting & Ceramic Mediums",
       description:
-        "Our performance professionals use exercise prescription to improve performance of competitive athletes or athletic teams — achieved through strength training, aerobic conditioning, and sport-specific methods.",
+        "Professional sculpting clays, wax mediums, stainless steel armature wires, and specialist carving loops designed for figurative and concept sculptors.",
     },
     {
-      title: "GX / Group Classes",
+      title: "Printmaking & Etching Supplies",
       description:
-        "We offer a wide range of group classes including Bodycombat, Bodypump, Dumbbell Blast, Ab Crusher, and Tabata — designed to be high energy, motivating, and results-driven.",
+        "Traditional linocut blocks, high-viscosity oil-based relief inks, Japanese carving gouges, and smooth-rolling brayers for fine printmakers.",
     },
     {
-      title: "InBody Checkups / Reassessment",
+      title: "Bespoke Color Formulation",
       description:
-        "We use the best-in-class InBody tests to analyze your body fat percentage, muscle mass, visceral fat, areas of obesity, vitamin deficiency, and other key biomarkers.",
+        "Custom pigment matching and binder formulation tailored for muralists and fine artists seeking signature colors with unmatched chromatic depth.",
     },
     {
-      title: "Injury Rehabilitation",
+      title: "Atelier Supply & Studio Wholesale",
       description:
-        "If you are suffering from skeletal structure problems such as back pain, knee pain, arthritis, tennis elbow, or sprains — we have a team of physios and rehab specialists ready to help you.",
+        "Dedicated bulk ordering, white-glove delivery, and commercial studio material supply accounts for art academies, creative agencies, and production studios.",
     },
   ],
   blog: [
     {
-      title: "The Ultimate Guide to Muscle Building",
+      title: "The Chemistry of Lightfast Pigments: Oil vs. Acrylic",
       excerpt:
-        "Learn the science-backed principles of hypertrophy and how to structure your training program for maximum muscle gains.",
-      category: "Training",
+        "Discover how binder permanence and particle dispersion affect color longevity, vibrancy, and ASTM lightfastness ratings in fine art mediums.",
+      category: "Mediums",
       date: "Dec 1, 2025",
       readTime: "5 min",
       image:
-        "https://images.unsplash.com/photo-1656774950529-44a6153521ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+        "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
     },
     {
-      title: "Nutrition Fundamentals for Fat Loss",
+      title: "Digital Mastery: Huion Pen Displays for Traditional Painters",
       excerpt:
-        "Understanding macros, calories, and meal timing to optimize your body composition transformation journey.",
-      category: "Nutrition",
+        "How textured glass surfaces, zero-parallax lamination, and 8K pressure levels make digital pen displays feel like painting on real canvas.",
+      category: "Digital Art",
       date: "Nov 28, 2025",
       readTime: "7 min",
       image:
-        "https://images.unsplash.com/photo-1750521280541-bbf9d813a890?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+        "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
     },
     {
-      title: "Olympic Lifting: Benefits Beyond Strength",
+      title: "Understanding Watercolor Papers: Hot Press vs. Cold Press",
       excerpt:
-        "Discover how Olympic lifts improve power, coordination, and athletic performance across all sports.",
-      category: "Training",
+        "Learn how tooth texture, internal gelatin sizing, and 300gsm cotton weights dictate water flow, granulation, and pigment lifting.",
+      category: "Substrates",
       date: "Nov 25, 2025",
       readTime: "6 min",
       image:
-        "https://images.unsplash.com/photo-1647456788971-90ac7066de4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+        "https://images.unsplash.com/photo-1513364776144-60967b0f800f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
     },
     {
-      title: "Recovery: The Missing Piece",
+      title: "The Art of Archival Varnishing: Protecting Artwork for Generations",
       excerpt:
-        "Why rest days, sleep, and active recovery are just as important as your training sessions for long-term progress.",
-      category: "Wellness",
+        "Why mineral spirit acrylic varnishes and removable damar coatings are essential shields against UV degradation, moisture, and dust.",
+      category: "Preservation",
       date: "Nov 22, 2025",
       readTime: "4 min",
       image:
-        "https://images.unsplash.com/photo-1759787851041-0d45d2b2db84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+        "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
     },
     {
-      title: "InBody Analysis: Understanding Your Metrics",
+      title: "Harmonic Color Theory: Mixing Clean Secondaries Without Mud",
       excerpt:
-        "A deep dive into body composition analysis and how to use the data to track real, measurable progress.",
-      category: "Technology",
+        "A deep dive into split-primary palettes, chromatic bias, and undertones to achieve radiant, luminous color blends every time.",
+      category: "Color Theory",
       date: "Nov 19, 2025",
       readTime: "5 min",
       image:
-        "https://images.unsplash.com/photo-1529420681125-2878126af4a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+        "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
     },
     {
-      title: "Injury Prevention for Lifters",
+      title: "Studio Lighting: Calibrating 95+ CRI for Color Precision",
       excerpt:
-        "Essential mobility work, warm-up routines, and technique tips to keep you training consistently and injury-free.",
-      category: "Health",
+        "Why standard warm bulbs distort your color perception and how 5000K daylight-balanced illumination transforms your painting accuracy.",
+      category: "Studio Setup",
       date: "Nov 15, 2025",
       readTime: "8 min",
       image:
-        "https://images.unsplash.com/photo-1632077804406-188472f1a810?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+        "https://images.unsplash.com/photo-1526779259212-939e64788e3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
     },
   ],
   gallery: [
     {
-      url: "https://images.unsplash.com/photo-1632077804406-188472f1a810?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80",
-      title: "World-Class Equipment",
+      url: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80",
+      title: "Pure Pigment Formulation",
       span: "lg:col-span-2 lg:row-span-2",
     },
     {
-      url: "https://images.unsplash.com/photo-1759787851041-0d45d2b2db84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
-      title: "Premium Interior",
+      url: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+      title: "Studio Atelier Workspace",
       span: "lg:col-span-1 lg:row-span-1",
     },
     {
-      url: "https://images.unsplash.com/photo-1647456788971-90ac7066de4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
-      title: "Free Weights Zone",
+      url: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+      title: "Handcrafted Canvases",
       span: "lg:col-span-1 lg:row-span-1",
     },
     {
-      url: "https://images.unsplash.com/photo-1750521280541-bbf9d813a890?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
-      title: "Training Sessions",
+      url: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+      title: "Huion Digital Display Suite",
       span: "lg:col-span-1 lg:row-span-1",
     },
     {
-      url: "https://images.unsplash.com/photo-1529420681125-2878126af4a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80",
-      title: "Cardio Area",
+      url: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80",
+      title: "Chromatic Mixing Bar",
       span: "lg:col-span-2 lg:row-span-1",
     },
     {
-      url: "https://images.unsplash.com/photo-1656774950529-44a6153521ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
-      title: "Strength Training",
+      url: "https://images.unsplash.com/photo-1526779259212-939e64788e3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80",
+      title: "Custom Conservation Framing",
       span: "lg:col-span-1 lg:row-span-1",
     },
   ],
   instagramFeed: [
-    "https://images.unsplash.com/photo-1608138278611-81a091e07691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
-    "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
-    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
-    "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
-    "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
-    "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
+    "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
+    "https://images.unsplash.com/photo-1513364776144-60967b0f800f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
+    "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
+    "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
+    "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
+    "https://images.unsplash.com/photo-1526779259212-939e64788e3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80",
   ],
 };

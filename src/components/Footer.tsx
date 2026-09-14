@@ -121,7 +121,7 @@ export default function Footer() {
             © {year} {siteConfig.brand.name}. All rights reserved.
           </p>
           <p className="font-poppins text-xs text-white/20">
-            Premium Fitness · Built for Champions
+            Premier Art Supplies · Crafted for Creators
           </p>
         </div>
       </div>

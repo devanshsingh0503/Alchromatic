@@ -6,8 +6,8 @@ import StackSection from "@/components/StackSection";
 import ParallaxElement from "@/components/ParallaxElement";
 
 export const metadata: Metadata = {
-  title: `Blog | ${siteConfig.brand.name}`,
-  description: `Training tips, nutrition guides, and fitness insights from the experts at ${siteConfig.brand.name}.`,
+  title: `Journal & Guides | ${siteConfig.brand.name}`,
+  description: `Material guides, pigment chemistry, and creative techniques from the curators at ${siteConfig.brand.name}.`,
 };
 
 export default function BlogPage() {
@@ -22,13 +22,13 @@ export default function BlogPage() {
         <ParallaxElement speed={100} className="pointer-events-none absolute -top-32 left-1/4 w-[480px] h-[480px] rounded-full bg-white/[0.025] blur-3xl" />
         <ParallaxElement speed={65} className="pointer-events-none absolute bottom-0 right-1/4 w-[300px] h-[300px] rounded-full bg-white/[0.015] blur-2xl" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full">
-          <ParallaxElement speed={22}>
-            <p className="font-poppins text-[10px] uppercase tracking-[0.3em] text-white/40 mb-4">Expert Insights</p>
-            <h1 className="font-rebelton text-[clamp(3rem,8vw,7rem)] leading-[0.9] text-white">Blog</h1>
+          <ParallaxElement speed={18}>
+            <p className="font-poppins text-[10px] uppercase tracking-[0.3em] text-white/40 mb-3">Creative Journal</p>
+            <h1 className="font-rebelton text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.98] text-white">Journal &amp; Guides</h1>
+            <p className="mt-6 font-poppins text-sm sm:text-base text-white/60 max-w-xl leading-relaxed">
+              Material chemistry, pigment insights, and digital painting techniques from our team of master artisans and colorists.
+            </p>
           </ParallaxElement>
-          <p className="mt-5 font-poppins text-sm text-white/60 max-w-xl leading-relaxed">
-            Science-backed tips, training guides, and nutrition insights from our team of certified professionals.
-          </p>
         </div>
       </StackSection>
 
@@ -44,26 +44,28 @@ export default function BlogPage() {
                   <img
                     src={featured.image}
                     alt={featured.title}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </ParallaxElement>
               </div>
               <div className="flex flex-col justify-center p-8 xl:p-14">
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="rounded-full bg-white/10 px-3 py-1 font-poppins text-[10px] uppercase tracking-[0.12em] text-white/60">
-                    {featured.category}
-                  </span>
-                  <span className="font-poppins text-[10px] text-white/30">{featured.date}</span>
-                </div>
                 <ParallaxElement speed={14}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="rounded-full bg-white/10 px-3 py-1 font-poppins text-[10px] uppercase tracking-[0.12em] text-white/60">
+                      {featured.category}
+                    </span>
+                    <span className="font-poppins text-[10px] text-white/30">{featured.date}</span>
+                  </div>
                   <h2 className="font-rebelton text-[clamp(1.5rem,3vw,2.5rem)] leading-tight text-white mb-4">
                     {featured.title}
                   </h2>
+                  <p className="font-poppins text-sm text-white/60 leading-relaxed mb-6">{featured.excerpt}</p>
+                  <div className="flex items-center gap-2 font-poppins text-xs text-white/40">
+                    <Clock size={13} /> {featured.readTime} read
+                  </div>
                 </ParallaxElement>
-                <p className="font-poppins text-sm text-white/60 leading-relaxed mb-8">{featured.excerpt}</p>
-                <div className="flex items-center gap-2 font-poppins text-xs text-white/40">
-                  <Clock size={13} /> {featured.readTime} read
-                </div>
               </div>
             </div>
           </div>
@@ -81,7 +83,13 @@ export default function BlogPage() {
                   <div className="relative h-48 overflow-hidden">
                     <ParallaxElement speed={30} className="h-[120%] w-full" style={{ marginTop: "-10%" }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={post.image} alt={post.title} className="h-full w-full object-cover" />
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover"
+                      />
                     </ParallaxElement>
                   </div>
                   <div className="p-6">
@@ -109,17 +117,19 @@ export default function BlogPage() {
       <StackSection index={3} bg="#0a0a0a" className="py-24 min-h-[50vh] flex items-center">
         <ParallaxElement speed={120} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.025] blur-3xl" />
         <div className="mx-auto max-w-2xl px-6 text-center w-full relative z-10">
-          <ParallaxElement speed={20}>
-            <h2 className="font-rebelton text-[clamp(2rem,5vw,3.5rem)] leading-none text-white">
-              Want Expert Guidance?
+          <ParallaxElement speed={18}>
+            <h2 className="font-rebelton text-[clamp(2rem,5vw,3.5rem)] leading-tight text-white">
+              Looking for Material Advice?
             </h2>
+            <p className="mt-5 font-poppins text-sm text-white/50 leading-relaxed">
+              Speak with our resident artists and color specialists. Get guidance on custom pigment blending, archival substrates, and Huion display selection.
+            </p>
+            <div className="mt-8">
+              <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-10 py-4 font-poppins text-sm font-medium tracking-wide text-black transition hover:bg-white/90">
+                Consult Our Atelier <ArrowRight size={16} />
+              </Link>
+            </div>
           </ParallaxElement>
-          <p className="mt-5 font-poppins text-sm text-white/50 leading-relaxed">
-            Talk to one of our certified coaches. Get a free consultation and a personalised plan designed for your specific goals.
-          </p>
-          <Link href="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-10 py-4 font-poppins text-sm font-medium tracking-wide text-black transition hover:bg-white/90">
-            Book Free Consultation <ArrowRight size={16} />
-          </Link>
         </div>
       </StackSection>
 
