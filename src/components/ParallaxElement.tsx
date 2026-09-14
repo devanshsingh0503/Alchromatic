@@ -32,6 +32,11 @@ export default function ParallaxElement({
     let ctx: { revert: () => void } | undefined;
 
     (async () => {
+      // Disable parallax displacement on mobile (< 768px) to prevent layout jumping or video cutoffs
+      if (typeof window !== "undefined" && window.innerWidth < 768) {
+        return;
+      }
+
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);

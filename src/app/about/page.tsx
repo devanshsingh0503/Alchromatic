@@ -47,14 +47,14 @@ export default function AboutPage() {
       </StackSection>
 
       {/* ── SECTION 2 · STORY ────────────────────────────── */}
-      <StackSection index={1} bg="#050505" className="py-24">
+      <StackSection index={1} bg="#050505" className="py-16 sm:py-24">
         <ParallaxElement speed={80} className="pointer-events-none absolute top-0 left-1/2 w-[480px] h-[480px] rounded-full bg-white/[0.02] blur-3xl" />
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-16 items-center">
             {/* Video showcase */}
             <div className="relative flex items-center justify-center">
               <ParallaxElement speed={30} className="w-full">
-                <div className="group relative overflow-hidden rounded-3xl border border-white/12 bg-white/4 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md">
+                <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/12 bg-white/4 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md">
                   <video
                     src="/huion-hero.mp4"
                     autoPlay
@@ -62,14 +62,14 @@ export default function AboutPage() {
                     muted
                     playsInline
                     preload="auto"
-                    className="h-[440px] xl:h-[480px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full aspect-[16/10] sm:aspect-[16/9] xl:h-[480px] xl:aspect-auto object-cover transition-transform duration-700 group-hover:scale-105"
                     style={{
                       transform: "translate3d(0, 0, 0)",
                       backfaceVisibility: "hidden",
                     }}
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                  <div className="pointer-events-none absolute bottom-5 left-6 right-6 flex items-center justify-between">
+                  <div className="pointer-events-none absolute bottom-4 left-5 right-5 sm:bottom-5 sm:left-6 sm:right-6 flex items-center justify-between">
                     <div>
                       <p className="font-poppins text-[10px] uppercase tracking-[0.2em] text-white/50">Atelier Studio</p>
                       <p className="font-poppins text-xs font-medium text-white/90">Pure Chroma & Digital Craft</p>

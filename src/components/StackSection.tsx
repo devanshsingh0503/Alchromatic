@@ -31,6 +31,12 @@ export default function StackSection({
     let ctx: { revert: () => void } | undefined;
 
     (async () => {
+      // Only enable GSAP sticky scaling & dimming on desktop (>= 1024px)
+      // On mobile devices, allow natural scrolling so all content and videos remain visible and reachable
+      if (typeof window !== "undefined" && window.innerWidth < 1024) {
+        return;
+      }
+
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
@@ -81,7 +87,7 @@ export default function StackSection({
   return (
     <div
       ref={ref}
-      className={`relative sticky top-0 overflow-hidden ${className}`}
+      className={`relative lg:sticky lg:top-0 overflow-visible lg:overflow-hidden ${className}`}
       style={{
         zIndex: 10 + index,
         background: bg,
@@ -92,10 +98,10 @@ export default function StackSection({
       }}
     >
       {children}
-      {/* GPU compositor dimming layer */}
+      {/* GPU compositor dimming layer — desktop only */}
       <div
         ref={overlayRef}
-        className="pointer-events-none absolute inset-0 bg-black z-50 transition-none"
+        className="pointer-events-none absolute inset-0 bg-black z-50 transition-none hidden lg:block"
         style={{ opacity: 0, willChange: "opacity" }}
       />
     </div>
