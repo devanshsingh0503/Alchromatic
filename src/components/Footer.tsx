@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { siteConfig } from "@/data/config";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowUp } from "lucide-react";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -120,6 +122,14 @@ export default function Footer() {
           <p className="font-poppins text-xs text-white/30">
             © {year} {siteConfig.brand.name}. All rights reserved.
           </p>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 font-poppins text-xs text-white/60 backdrop-blur-sm transition-all duration-200 hover:border-white/40 hover:bg-white hover:text-black hover:scale-105"
+          >
+            <span>Back to top</span>
+            <ArrowUp size={13} className="transition-transform duration-200 group-hover:-translate-y-0.5" />
+          </button>
           <p className="font-poppins text-xs text-white/20">
             Premier Art Supplies · Crafted for Creators
           </p>

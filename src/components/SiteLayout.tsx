@@ -7,6 +7,7 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/data/config";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
+import BackToTop from "@/components/BackToTop";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -149,6 +150,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
 
       {/* Chat Widget */}
       <ChatWidget isOpen={chatOpen} onClose={() => setChatOpen(false)} />
+
+      {/* Floating Back to Top Button */}
+      <BackToTop />
 
       {/* Page content */}
       <main className="bg-black text-white">{children}</main>
