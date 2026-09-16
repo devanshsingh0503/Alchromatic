@@ -183,8 +183,8 @@ export default function HomePage() {
               Archival Pigments · Master Canvases · Digital Displays
             </p>
 
-            {/* Brand Title: Guaranteed single line on ALL screen sizes */}
-            <h1 className="font-rebelton text-[clamp(1.75rem,7.5vw,7rem)] leading-[0.92] tracking-tight text-white whitespace-nowrap overflow-hidden text-ellipsis sm:text-clip">
+            {/* Brand Title: Full uncut Rebelton styling as originally designed */}
+            <h1 className="font-rebelton text-[clamp(2.5rem,8vw,7.5rem)] leading-tight sm:leading-[0.95] tracking-tight text-white">
               {siteConfig.brand.name}
             </h1>
 
