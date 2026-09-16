@@ -7,27 +7,24 @@ export default function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const checkScroll = () => {
-      const scrollY =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop ||
-        window.scrollY ||
-        0;
+    let ticking = false;
 
-      // Show as soon as user scrolls past 80px
-      setVisible(scrollY > 80);
+    const checkScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.pageYOffset || window.scrollY || 0;
+          setVisible(scrollY > 80);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", checkScroll, { passive: true });
-    window.addEventListener("touchmove", checkScroll, { passive: true });
-    window.addEventListener("wheel", checkScroll, { passive: true });
     checkScroll();
 
     return () => {
       window.removeEventListener("scroll", checkScroll);
-      window.removeEventListener("touchmove", checkScroll);
-      window.removeEventListener("wheel", checkScroll);
     };
   }, []);
 

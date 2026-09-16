@@ -67,7 +67,7 @@ export default function StackSection({
   return (
     <section
       ref={ref}
-      className={`sticky min-h-[100dvh] w-full flex flex-col justify-center overflow-hidden ${
+      className={`sticky stack-card-anim min-h-[100dvh] w-full flex flex-col justify-center overflow-hidden ${
         index === 0
           ? "rounded-none"
           : "rounded-t-[26px] sm:rounded-t-[36px] shadow-[0_-16px_50px_rgba(0,0,0,0.95)]"

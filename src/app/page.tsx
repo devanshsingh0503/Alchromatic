@@ -90,24 +90,40 @@ export default function HomePage() {
   const trayVideoRef = useRef<HTMLVideoElement>(null);
   const huionCollectionVideoRef = useRef<HTMLVideoElement>(null);
 
-  // Lightweight native video autoplay and unlock listeners
+  // Performant video lifecycle: only decode and play videos that are in view, eliminating GPU lag on scroll & back scroll
   useEffect(() => {
-    const videos = [videoRef.current, trayVideoRef.current, huionCollectionVideoRef.current];
+    const videos = [videoRef.current, trayVideoRef.current, huionCollectionVideoRef.current].filter(
+      Boolean
+    ) as HTMLVideoElement[];
 
     videos.forEach((video) => {
-      if (!video) return;
       video.muted = true;
       video.defaultMuted = true;
       video.playsInline = true;
       video.setAttribute("playsinline", "");
       video.setAttribute("webkit-playsinline", "");
-      video.play().catch(() => {});
-
-      const onPause = () => {
-        video.play().catch(() => {});
-      };
-      video.addEventListener("pause", onPause);
     });
+
+    let observer: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver !== "undefined") {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target as HTMLVideoElement;
+            if (entry.isIntersecting) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      videos.forEach((v) => observer?.observe(v));
+    } else {
+      videos.forEach((v) => v.play().catch(() => {}));
+    }
 
     const unlockVideos = () => {
       videos.forEach((video) => {
@@ -119,17 +135,11 @@ export default function HomePage() {
 
     window.addEventListener("touchstart", unlockVideos, { passive: true, once: true });
     window.addEventListener("click", unlockVideos, { once: true });
-    window.addEventListener("scroll", unlockVideos, { passive: true, once: true });
 
     return () => {
+      observer?.disconnect();
       window.removeEventListener("touchstart", unlockVideos);
       window.removeEventListener("click", unlockVideos);
-      window.removeEventListener("scroll", unlockVideos);
-      videos.forEach((video) => {
-        if (video) {
-          video.removeEventListener("pause", () => {});
-        }
-      });
     };
   }, []);
 
@@ -179,33 +189,35 @@ export default function HomePage() {
         {/* Hero content */}
         <div className="relative z-10 w-full pb-24 sm:pb-28 xl:pb-24 px-5 sm:px-8 lg:px-12 xl:px-20">
           <div className="max-w-7xl mx-auto">
-            <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white/65 mb-2 sm:mb-3">
-              Archival Pigments · Master Canvases · Digital Displays
-            </p>
+            <div className="max-w-3xl">
+              <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white/65 mb-2 sm:mb-3">
+                Archival Pigments · Master Canvases · Digital Displays
+              </p>
 
-            {/* Brand Title: Full uncut Rebelton styling as originally designed */}
-            <h1 className="font-rebelton text-[clamp(2.5rem,8vw,7.5rem)] leading-tight sm:leading-[0.95] tracking-tight text-white">
-              {siteConfig.brand.name}
-            </h1>
+              {/* Brand Title: Bold, prominent scale while maintaining balanced fit */}
+              <h1 className="font-rebelton text-[clamp(2.15rem,6.8vw,5.5rem)] leading-none sm:leading-[0.96] tracking-tight text-white mb-4 sm:mb-5">
+                {siteConfig.brand.name}
+              </h1>
 
-            <p className="mt-3 sm:mt-5 font-poppins text-xs sm:text-sm md:text-base text-white/70 max-w-xl leading-relaxed">
-              {siteConfig.brand.tagline} The premier sanctuary for fine art supplies, archival mediums, and professional Huion creative displays.
-            </p>
+              <p className="font-poppins text-xs sm:text-sm md:text-base text-white/70 max-w-xl leading-relaxed">
+                {siteConfig.brand.tagline} The premier sanctuary for fine art supplies, archival mediums, and professional Huion creative displays.
+              </p>
 
-            {/* Action buttons */}
-            <div className="mt-5 sm:mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-sm sm:max-w-none">
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-poppins text-xs sm:text-sm font-semibold tracking-wide text-black transition-all hover:bg-white/90 hover:gap-3 text-center shadow-lg active:scale-95"
-              >
-                Explore Supplies <ArrowRight size={15} />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-7 py-3.5 font-poppins text-xs sm:text-sm font-medium tracking-wide text-white backdrop-blur-sm transition hover:bg-white/10 text-center active:scale-95"
-              >
-                Visit Atelier
-              </Link>
+              {/* Action buttons */}
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-sm sm:max-w-none">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-poppins text-xs sm:text-sm font-semibold tracking-wide text-black transition-all hover:bg-white/90 hover:gap-3 text-center shadow-lg active:scale-95"
+                >
+                  Explore Supplies <ArrowRight size={15} />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-7 py-3.5 font-poppins text-xs sm:text-sm font-medium tracking-wide text-white backdrop-blur-sm transition hover:bg-white/10 text-center active:scale-95"
+                >
+                  Visit Atelier
+                </Link>
+              </div>
             </div>
           </div>
         </div>
