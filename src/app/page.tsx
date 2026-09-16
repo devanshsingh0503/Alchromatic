@@ -88,13 +88,12 @@ const serviceCardStyles = [
 export default function HomePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const trayVideoRef = useRef<HTMLVideoElement>(null);
+  const desktopTrayVideoRef = useRef<HTMLVideoElement>(null);
   const huionCollectionVideoRef = useRef<HTMLVideoElement>(null);
 
-  // Performant video lifecycle: only decode and play videos that are in view, eliminating GPU lag on scroll & back scroll
+  // Performant video lifecycle: strictly pause off-screen videos to eliminate GPU/RAM stalls during touch scrolling & reversals
   useEffect(() => {
-    const videos = [videoRef.current, trayVideoRef.current, huionCollectionVideoRef.current].filter(
-      Boolean
-    ) as HTMLVideoElement[];
+    const videos = Array.from(document.querySelectorAll<HTMLVideoElement>("video"));
 
     videos.forEach((video) => {
       video.muted = true;
@@ -117,7 +116,7 @@ export default function HomePage() {
             }
           });
         },
-        { threshold: 0.15 }
+        { threshold: 0.1 }
       );
 
       videos.forEach((v) => observer?.observe(v));
@@ -166,7 +165,7 @@ export default function HomePage() {
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             className="h-full w-full object-cover"
             style={{
               transform: "translate3d(0, 0, 0)",
@@ -273,7 +272,7 @@ export default function HomePage() {
                     loop
                     muted
                     playsInline
-                    preload="auto"
+                    preload="metadata"
                     className="w-full aspect-[16/9] object-cover"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
@@ -307,16 +306,17 @@ export default function HomePage() {
             {/* Desktop Tray Video (visible on xl:) */}
             <div className="hidden xl:flex relative items-center justify-center">
               <div
-                onClick={() => togglePlay(trayVideoRef)}
+                onClick={() => togglePlay(desktopTrayVideoRef)}
                 className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/15 bg-black/60 shadow-[0_25px_60px_rgba(0,0,0,0.85)] w-full"
               >
                 <video
+                  ref={desktopTrayVideoRef}
                   src="/tray-8-17.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
@@ -372,7 +372,7 @@ export default function HomePage() {
                     loop
                     muted
                     playsInline
-                    preload="auto"
+                    preload="metadata"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />

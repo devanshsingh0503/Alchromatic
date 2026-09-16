@@ -15,7 +15,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-black border-t border-white/10 pt-16 pb-32 xl:pb-20">
+    <footer className="relative z-30 bg-black border-t border-white/10 pt-16 pb-32 xl:pb-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-4">
           {/* Brand */}

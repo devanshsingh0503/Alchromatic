@@ -61,7 +61,7 @@ export default function AboutPage() {
                     loop
                     muted
                     playsInline
-                    preload="auto"
+                    preload="metadata"
                     className="w-full aspect-[16/10] sm:aspect-[16/9] xl:h-[480px] xl:aspect-auto object-cover transition-transform duration-700 group-hover:scale-105"
                     style={{
                       transform: "translate3d(0, 0, 0)",

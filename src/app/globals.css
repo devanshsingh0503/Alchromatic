@@ -26,39 +26,26 @@
 }
 
 html {
-  /* Let native momentum scrolling run at full hardware speed without interpolation lag */
+  /* Native momentum scrolling */
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+  overscroll-behavior-y: none;
 }
 
 body {
   font-family: var(--font-poppins);
   background: #000;
   color: #fff;
+  touch-action: pan-y;
+  overscroll-behavior-y: none;
 }
 
-/* Hardware-accelerated card deck smooth animation on both forward and back scroll */
-.stack-card-anim {
-  will-change: transform, opacity;
-  transform-origin: center top;
-}
-
-@supports (animation-timeline: view()) {
-  .stack-card-anim {
-    animation: stackDeckAnim linear both;
-    animation-timeline: view();
-    animation-range: exit 0% exit 100%;
-  }
-
-  @keyframes stackDeckAnim {
-    0% {
-      transform: scale(1) translate3d(0, 0, 0);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(0.95) translate3d(0, 0, 0);
-      opacity: 0.55;
-    }
-  }
+/* Pure CSS hardware-accelerated card deck stacking */
+.stack-section {
+  position: -webkit-sticky;
+  position: sticky;
+  top: -50vh;
+  top: -50dvh;
 }
 
 .font-rebelton {
