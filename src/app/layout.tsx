@@ -30,9 +30,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="overflow-x-hidden">
+      <body className="overflow-x-clip bg-black text-white selection:bg-white selection:text-black">
         <SiteLayout>{children}</SiteLayout>
       </body>
     </html>
   );
 }
+

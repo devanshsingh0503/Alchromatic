@@ -94,14 +94,13 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-transparent to-black/85 pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.72)_100%)] pointer-events-none" />
 
-          {/* Floating glowing orbs */}
-          <div className="absolute -top-16 left-12 size-[440px] rounded-full bg-gradient-to-br from-amber-400/25 via-yellow-400/15 to-transparent blur-[110px] animate-glow-1 pointer-events-none" />
-          <div className="absolute top-1/4 -right-16 size-[480px] rounded-full bg-gradient-to-bl from-pink-500/30 via-rose-500/15 to-transparent blur-[120px] animate-glow-2 pointer-events-none" />
-          <div className="absolute -bottom-16 left-1/4 size-[460px] rounded-full bg-gradient-to-tr from-cyan-400/25 via-blue-500/15 to-transparent blur-[110px] animate-glow-2 pointer-events-none" />
+          {/* Static performant multi-radial glow — zero lag */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(245,158,11,0.22)_0%,transparent_50%),radial-gradient(ellipse_at_top_right,rgba(236,72,153,0.25)_0%,transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(56,189,248,0.22)_0%,transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(16,185,129,0.2)_0%,transparent_45%),radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.2)_0%,transparent_60%)] pointer-events-none" />
 
           {/* Linen canvas texture */}
-          <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:26px_26px] opacity-[0.045] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:26px_26px] opacity-[0.035] pointer-events-none" />
         </div>
+
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 w-full">
           <ParallaxElement speed={18}>
@@ -123,13 +122,12 @@ export default function ServicesPage() {
 
       {/* ── SECTION 2 · GRID ─────────────────────────────── */}
       <StackSection index={1} bg="#050209" className="py-20 relative overflow-hidden">
-        {/* Background ambience */}
+        {/* Background ambience — performant static multi-radial glow */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <div className="absolute top-1/4 -right-16 size-[480px] rounded-full bg-gradient-to-bl from-pink-500/20 via-rose-500/10 to-transparent blur-[120px] animate-glow-2" />
-          <div className="absolute bottom-1/4 -left-12 size-[420px] rounded-full bg-gradient-to-tr from-cyan-400/20 via-blue-500/10 to-transparent blur-[110px] animate-glow-1" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[500px] rounded-full bg-gradient-to-r from-purple-500/15 via-fuchsia-500/15 to-transparent blur-[130px] animate-glow-pulse" />
-          <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:26px_26px] opacity-[0.035]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(236,72,153,0.18)_0%,transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(56,189,248,0.18)_0%,transparent_50%),radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.14)_0%,transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:26px_26px] opacity-[0.03]" />
         </div>
+
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">

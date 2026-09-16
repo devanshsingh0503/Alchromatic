@@ -1,22 +1,18 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import React from "react";
 
 interface StackSectionProps {
   children: React.ReactNode;
   className?: string;
-  /** z-index offset — pass the section's order index */
+  /** z-index stacking order */
   index?: number;
   /** Background color of the card */
   bg?: string;
 }
 
 /**
- * StackSection — wraps a page section so it:
- * 1. Sticks to the top (position: sticky; top: 0)
- * 2. Scales down + dims when the NEXT section scrolls over it
- *
- * Just wrap any <section> with <StackSection index={n}> and it works.
+ * StackSection — High-performance full-page card stacking architecture
+ * Uses native CSS sticky stacking + GPU acceleration for silky 60/120fps on mobile and laptop.
+ * Each section is a full-page view card that smoothly overlaps the previous one as you scroll.
  */
 export default function StackSection({
   children,
@@ -24,86 +20,21 @@ export default function StackSection({
   index = 0,
   bg = "#000",
 }: StackSectionProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let ctx: { revert: () => void } | undefined;
-
-    (async () => {
-      // Only enable GSAP sticky scaling & dimming on desktop (>= 1024px)
-      // On mobile devices, allow natural scrolling so all content and videos remain visible and reachable
-      if (typeof window !== "undefined" && window.innerWidth < 1024) {
-        return;
-      }
-
-      const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
-
-      if (!ref.current) return;
-
-      ctx = gsap.context(() => {
-        // Scale down on GPU compositor thread
-        gsap.fromTo(
-          ref.current,
-          { scale: 1, force3D: true },
-          {
-            scale: 0.9,
-            ease: "none",
-            force3D: true,
-            scrollTrigger: {
-              trigger: ref.current,
-              start: "top top",
-              end: "bottom top",
-              scrub: 1.0,
-            },
-          }
-        );
-
-        // Hardware-accelerated dimming via opacity overlay (no layout repaint or filter lag)
-        if (overlayRef.current) {
-          gsap.fromTo(
-            overlayRef.current,
-            { opacity: 0 },
-            {
-              opacity: 0.55,
-              ease: "none",
-              scrollTrigger: {
-                trigger: ref.current,
-                start: "top top",
-                end: "bottom top",
-                scrub: 1.0,
-              },
-            }
-          );
-        }
-      }, ref);
-    })();
-
-    return () => ctx?.revert();
-  }, []);
-
   return (
-    <div
-      ref={ref}
-      className={`relative lg:sticky lg:top-0 overflow-visible lg:overflow-hidden ${className}`}
+    <section
+      className={`sticky top-0 min-h-[100dvh] w-full flex flex-col justify-center overflow-hidden ${
+        index === 0
+          ? "rounded-none"
+          : "rounded-t-[26px] sm:rounded-t-[36px] shadow-[0_-16px_50px_rgba(0,0,0,0.95)]"
+      } ${className}`}
       style={{
         zIndex: 10 + index,
-        background: bg,
-        borderRadius: index === 0 ? "0" : "24px 24px 0 0",
-        willChange: "transform",
+        backgroundColor: bg,
         transform: "translate3d(0, 0, 0)",
-        backfaceVisibility: "hidden",
+        WebkitTransform: "translate3d(0, 0, 0)",
       }}
     >
       {children}
-      {/* GPU compositor dimming layer — desktop only */}
-      <div
-        ref={overlayRef}
-        className="pointer-events-none absolute inset-0 bg-black z-50 transition-none hidden lg:block"
-        style={{ opacity: 0, willChange: "opacity" }}
-      />
-    </div>
+    </section>
   );
 }
